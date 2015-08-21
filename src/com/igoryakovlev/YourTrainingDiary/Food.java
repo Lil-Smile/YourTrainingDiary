@@ -1,11 +1,14 @@
 package com.igoryakovlev.YourTrainingDiary;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -18,7 +21,7 @@ import java.util.Map;
 /**
  * Created by Smile on 21.08.15.
  */
-public class Food extends Activity implements Constants{
+public class Food extends Activity implements Constants, View.OnClickListener{
 
     EditText etFindTheFood;
     Button buttonAddTheFood;
@@ -28,20 +31,20 @@ public class Food extends Activity implements Constants{
 
     DBHelper dbHelper = new DBHelper(this);
 
-    LayoutInflater layoutInflater;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food);
 
-        Log.d("food","created");
+        Log.d("food", "created");
 
         etFindTheFood = (EditText)findViewById(R.id.etFindTheFood);
         buttonAddTheFood = (Button)findViewById(R.id.buttonAddTheFood);
         lvListOfFood = (ListView)findViewById(R.id.lvListOfFood);
 
-        layoutInflater=getLayoutInflater();
+        buttonAddTheFood.setOnClickListener(this);
 
         Cursor cursor = dbHelper.getFoodCursor(); //getting data from db
         if (cursor.moveToFirst())
@@ -76,5 +79,14 @@ public class Food extends Activity implements Constants{
 
         //SimpleAdapter simpleAdapter = new SimpleAdapter(this,)
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId()==R.id.buttonAddTheFood)
+        {
+            DialogFragment dialogFragment = new FoodDialogFragment();
+            dialogFragment.show(getFragmentManager(),"dialog");
+        }
     }
 }

@@ -83,9 +83,9 @@ public class DBHelper extends SQLiteOpenHelper implements Constants{
         cv.put(FOOD_NAME,"Вода");
         cv.put(PROTEIN,0f);
         cv.put(FAT,0f);
-        cv.put(CARBOHYDRATES,0f);
-        cv.put(CALORIFIC,0f);
-        db.insert(FOOD_TABLE_NAME,null,cv);
+        cv.put(CARBOHYDRATES, 0f);
+        cv.put(CALORIFIC, 0f);
+        db.insert(FOOD_TABLE_NAME, null, cv);
 
     }
 
@@ -93,7 +93,19 @@ public class DBHelper extends SQLiteOpenHelper implements Constants{
 
         SQLiteDatabase database = this.getReadableDatabase();
         Cursor cursor = database.query(FOOD_TABLE_NAME,null,null,null,null,null,null,null);
-        Log.d("db","cursor passed");
+        Log.d("db", "cursor passed");
         return cursor;
     }
+
+    public void addTheFoodToDatabase(String foodName, float protein, float fat, float carbohydrates, float calorifical)
+    {
+        ContentValues cv = new ContentValues();
+        cv.put(FOOD_NAME,foodName);
+        cv.put(PROTEIN,protein);
+        cv.put(FAT,fat);
+        cv.put(CARBOHYDRATES,carbohydrates);
+        cv.put(CALORIFIC,calorifical);
+        getWritableDatabase().insert(FOOD_TABLE_NAME,null,cv);
+    }
+
 }

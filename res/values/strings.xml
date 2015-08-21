@@ -6,4 +6,11 @@
     <string name="graph">График</string>
     <string name="settings">Настройки</string>
     <string name="add">Добавить</string>
+    <string name="save">Сохранить</string>
+    <string name="foodName">Название</string>
+    <string name="protein">Белков,г:</string>
+    <string name="fat">Жиров,г:</string>
+    <string name="carbohydrates">Углеводов,г:</string>
+    <string name="calorifical">Калорийность,кк:</string>
+    <string name="adding">Добавление</string>
 </resources>
