@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YourTrainingDiary</string>
+    <string name="ration">Рацион</string>
+    <string name="food">Продукты</string>
+    <string name="graph">График</string>
+    <string name="settings">Настройки</string>
+    <string name="add">Добавить</string>
+</resources>
