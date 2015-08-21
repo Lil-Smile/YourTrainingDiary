@@ -26,7 +26,7 @@ public interface Constants {
     String TEXT_TYPE="TEXT";
     String INT_TYPE="INTEGER";
     String REAL_TYPE="REAL";
-    String ID_TYPE="ID INTEGER PRIMARY KEY AUTOINCREMENT";
+    String ID_TYPE="INTEGER PRIMARY KEY AUTOINCREMENT";
 
 
 }

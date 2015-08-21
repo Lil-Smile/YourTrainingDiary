@@ -28,6 +28,11 @@ public class MyActivity extends Activity implements View.OnClickListener {
         buttonGraph = (Button)findViewById(R.id.buttonGraph);
         buttonSettings = (Button)findViewById(R.id.buttonSettings);
 
+        buttonRation.setOnClickListener(this);
+        buttonFood.setOnClickListener(this);
+        buttonGraph.setOnClickListener(this);
+        buttonSettings.setOnClickListener(this);
+
     }
 
     @Override
