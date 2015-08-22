@@ -105,7 +105,28 @@ public class DBHelper extends SQLiteOpenHelper implements Constants{
         cv.put(FAT,fat);
         cv.put(CARBOHYDRATES,carbohydrates);
         cv.put(CALORIFIC,calorifical);
-        getWritableDatabase().insert(FOOD_TABLE_NAME,null,cv);
+        getWritableDatabase().insert(FOOD_TABLE_NAME, null, cv);
     }
+
+
+    public Cursor getFoodCursorSearch(String key)
+    {
+        //Log.d("search",key);
+        SQLiteDatabase database = this.getReadableDatabase();
+        String selection=FOOD_NAME+" LIKE ?";
+        String[] selectionArgs = {"%"+key+"%"};
+        Log.d("search in db",selection+selectionArgs[0]);
+        Cursor cursor = database.query(FOOD_TABLE_NAME,
+                null,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null,
+                null);
+
+        return cursor;
+    }
+
 
 }

@@ -17,4 +17,5 @@
         <activity android:name=".Settings"/>
         <activity android:name=".Graph"/>
     </application>
+
 </manifest>
