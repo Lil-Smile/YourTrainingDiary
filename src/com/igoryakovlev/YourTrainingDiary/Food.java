@@ -3,6 +3,7 @@ package com.igoryakovlev.YourTrainingDiary;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,10 +14,8 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
+import android.view.ViewGroup;
+import android.widget.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +27,6 @@ import java.util.Observable;
  */
 public class Food extends Activity implements Constants, View.OnClickListener{
 
-    //todo: add search
 
     EditText etFindTheFood;
     Button buttonAddTheFood;
@@ -53,6 +51,24 @@ public class Food extends Activity implements Constants, View.OnClickListener{
         etFindTheFood = (EditText)findViewById(R.id.etFindTheFood);
         buttonAddTheFood = (Button)findViewById(R.id.buttonAddTheFood);
         lvListOfFood = (ListView)findViewById(R.id.lvListOfFood);
+
+        lvListOfFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (getCallingActivity()!=null)
+                {
+                    HashMap<String,Object> tmp = (HashMap<String,Object>)lvListOfFood.getItemAtPosition(position);
+                    String foodName = (String)tmp.get(FOOD_NAME);
+
+                    Log.d("clicked",foodName);
+                     //todo: хз как это вытащить
+                    Intent data = new Intent();
+                    data.putExtra(FOOD_NAME,foodName);
+                    setResult(RESULT_OK, data);
+                    finish();
+                }
+            }
+        });
 
         buttonAddTheFood.setOnClickListener(this);
        /* etFindTheFood.setOnKeyListener(new View.OnKeyListener() {

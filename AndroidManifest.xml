@@ -13,7 +13,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Ration"/>
-        <activity android:name=".Food"/>
+        <activity android:name=".Food"
+                android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".Settings"/>
         <activity android:name=".Graph"/>
     </application>

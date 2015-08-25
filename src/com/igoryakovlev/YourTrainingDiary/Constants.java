@@ -27,6 +27,7 @@ public interface Constants {
     String INT_TYPE="INTEGER";
     String REAL_TYPE="REAL";
     String ID_TYPE="INTEGER PRIMARY KEY AUTOINCREMENT";
+    String[] EATING_DATA = {"Завтрак","Второй завтрак","Обед","Второй обед","Полдник","Второй полдник","Ужин","Второй Ужин"};
 
 
 }

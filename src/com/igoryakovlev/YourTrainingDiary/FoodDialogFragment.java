@@ -22,6 +22,7 @@ public class FoodDialogFragment extends DialogFragment implements View.OnClickLi
         View v = inflater.inflate(R.layout.add_food_dialog,null);
         v.findViewById(R.id.buttonSaveTheFood).setOnClickListener(this);
 
+
         etFoodName = (EditText)v.findViewById(R.id.etFoodName);
         etProt = (EditText)v.findViewById(R.id.etProtein);
         etFat = (EditText)v.findViewById(R.id.etFat);

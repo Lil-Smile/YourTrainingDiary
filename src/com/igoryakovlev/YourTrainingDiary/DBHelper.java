@@ -115,7 +115,7 @@ public class DBHelper extends SQLiteOpenHelper implements Constants{
         SQLiteDatabase database = this.getReadableDatabase();
         String selection=FOOD_NAME+" LIKE ?";
         String[] selectionArgs = {"%"+key+"%"};
-        Log.d("search in db",selection+selectionArgs[0]);
+        Log.d("search in db", selection + selectionArgs[0]);
         Cursor cursor = database.query(FOOD_TABLE_NAME,
                 null,
                 selection,
@@ -126,6 +126,22 @@ public class DBHelper extends SQLiteOpenHelper implements Constants{
                 null);
 
         return cursor;
+    }
+
+
+    public Cursor getRationCursor(String date)
+    {
+        SQLiteDatabase database = this.getReadableDatabase();
+        String selection = DATA + " LIKE ?";
+        String[] selectionArgs = {date};
+        Cursor cursor = database.query(RATION_TABLE_NAME,
+                null,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null);
+        return  cursor;
     }
 
 
