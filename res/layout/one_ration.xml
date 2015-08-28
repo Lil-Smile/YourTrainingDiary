@@ -8,7 +8,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Text"
-            android:id="@+id/tvFoodNameRation"/>
+            android:id="@+id/tvFoodNameRation"
+            android:minHeight="20dp"
+            android:minWidth="100dp"/>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
@@ -17,22 +19,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tvFoodProtRation" android:layout_weight="1" android:padding="@dimen/paddingFood"/>
+                android:id="@+id/tvFoodProtRation"
+                android:layout_weight="1"
+                android:padding="@dimen/paddingFood"
+                android:minWidth="10dp"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tvFoodFatRation" android:layout_weight="1" android:padding="@dimen/paddingFood"/>
+                android:id="@+id/tvFoodFatRation"
+                android:layout_weight="1"
+                android:padding="@dimen/paddingFood"
+                android:minWidth="10dp"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tvFoodCarboRation" android:layout_weight="1" android:padding="@dimen/paddingFood"/>
+                android:id="@+id/tvFoodCarboRation"
+                android:layout_weight="1"
+                android:padding="@dimen/paddingFood"
+                android:minWidth="10dp"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tvFoodCalorRation" android:layout_weight="1" android:padding="@dimen/paddingFood"/>
+                android:id="@+id/tvFoodCalorRation"
+                android:layout_weight="1"
+                android:padding="@dimen/paddingFood"
+                android:minWidth="10dp"/>
     </LinearLayout>
     <TextView
             android:layout_width="wrap_content"

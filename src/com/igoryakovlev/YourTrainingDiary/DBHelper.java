@@ -30,6 +30,7 @@ public class DBHelper extends SQLiteOpenHelper implements Constants{
         Log.d("db","created");
         createTableFood(db);
         createTableRation(db);
+        createTableGraph(db);
         fillTableFood(db);
 
 
@@ -76,6 +77,22 @@ public class DBHelper extends SQLiteOpenHelper implements Constants{
 
 
     }
+
+    private void createTableGraph(SQLiteDatabase db)
+    {
+        Log.d("db","graph table ");
+        String executionString = CREATE_TABLE+SPACE+GRAPH_TABLE_NAME+SPACE+LEFT_BRACKET+
+                ID+SPACE+ID_TYPE+COMMA+SPACE+
+                DATA+SPACE+TEXT_TYPE+COMMA+SPACE+
+                CALORIFIC+SPACE+REAL_TYPE+COMMA+SPACE+
+                PROTEIN+SPACE+REAL_TYPE+COMMA+SPACE+
+                FAT+SPACE+REAL_TYPE+COMMA+SPACE+
+                CARBOHYDRATES+SPACE+REAL_TYPE+RIGHT_BRACKET+SEMICOLON;
+        db.execSQL(executionString);
+        Log.d("GraphTabelCreated",executionString);
+    }
+
+
     private void fillTableFood(SQLiteDatabase db)
     {
         Log.d("db","food filled");
@@ -143,6 +160,29 @@ public class DBHelper extends SQLiteOpenHelper implements Constants{
                 null);
         return  cursor;
     }
+
+    public void addToGraph(String date, float calor, float prot, float fat, float carbo)
+    {
+        SQLiteDatabase database = this.getWritableDatabase();
+        String selection = DATA+" LIKE ?";
+        String[] selectionArgs = {date};
+        ContentValues cv = new ContentValues();
+        cv.put(CALORIFIC,calor);
+        cv.put(CARBOHYDRATES,carbo);
+        cv.put(FAT,fat);
+        cv.put(PROTEIN,prot);
+        cv.put(DATA,date);
+        Cursor cursor = database.query(GRAPH_TABLE_NAME,null,selection,selectionArgs,null,null,null);
+        if (cursor.moveToFirst())
+        {
+            database.update(GRAPH_TABLE_NAME,cv,selection,selectionArgs);
+        } else
+        {
+            database.insert(GRAPH_TABLE_NAME,null,cv);
+        }
+
+    }
+
 
 
 }

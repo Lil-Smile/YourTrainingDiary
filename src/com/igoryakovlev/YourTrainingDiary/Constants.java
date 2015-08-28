@@ -9,6 +9,7 @@ public interface Constants {
     String CREATE_TABLE="CREATE TABLE";
     String RATION_TABLE_NAME="Ration";
     String FOOD_TABLE_NAME="Food";
+    String GRAPH_TABLE_NAME="Graph";
     String SPACE=" ";
     String LEFT_BRACKET="(";
     String RIGHT_BRACKET=")";

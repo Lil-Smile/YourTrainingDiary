@@ -83,12 +83,14 @@ public class AddRationFragment extends DialogFragment implements Constants {
             @Override
             public void onClick(View v) {
 
-
-                weight =Integer.valueOf(etWeight.getText().toString()).intValue();
-                hours = Integer.valueOf(buttonTimePicker.getText().toString().substring(0, 2)).intValue();
-                minutes = Integer.valueOf(buttonTimePicker.getText().toString().substring(3,5));
-                Log.d("got","weight="+weight+" hours="+hours+" minutes="+minutes+" eating="+eating);
-                addFoodRationResponce.onAddingFoodFinished(weight, hours,minutes,eating, data);
+                if(!etWeight.getText().toString().equals(""))
+                {
+                    weight =Integer.valueOf(etWeight.getText().toString()).intValue();
+                    hours = Integer.valueOf(buttonTimePicker.getText().toString().substring(0, 2)).intValue();
+                    minutes = Integer.valueOf(buttonTimePicker.getText().toString().substring(3,5));
+                    Log.d("got","weight="+weight+" hours="+hours+" minutes="+minutes+" eating="+eating);
+                    addFoodRationResponce.onAddingFoodFinished(weight, hours,minutes,eating, data);
+                }
                 dismiss();
 
             }

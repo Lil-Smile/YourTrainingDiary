@@ -33,12 +33,19 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
     ArrayList<Map<String,Object>> data = new ArrayList<Map<String, Object>>(10);
 
     String[] from = {FOOD_NAME,PROTEIN,FAT,CARBOHYDRATES,CALORIFIC,EATING,TIME,DATA};
-    int[] to = {R.id.tvFoodNameRation,R.id.tvProtRation,R.id.tvFatRation,R.id.tvCarboRation,R.id.tvCalorRation,R.id.tvEatingRation,R.id.tvTimeRation,R.id.tvDateRation};
+    int[] to = {R.id.tvFoodNameRation,R.id.tvFoodProtRation,R.id.tvFoodFatRation,R.id.tvFoodCarboRation,R.id.tvFoodCalorRation,R.id.tvEatingRation,R.id.tvTimeRation,R.id.tvDateRation};
+
+    float currentProt, currentFat, currentCarbo, currentCalor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ration);
+
+        currentProt=0f;
+        currentFat=0f;
+        currentCarbo=0f;
+        currentCalor=0f;
 
         tvProt = (TextView)findViewById(R.id.tvProtRation);
         tvFat = (TextView)findViewById(R.id.tvFatRation);
@@ -80,11 +87,20 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
                 m.put(CALORIFIC,cursor.getFloat(calorificColIndex));
                 m.put(EATING,cursor.getString(eatingColIndex));
                 m.put(TIME,cursor.getString(timeColIndex));
-                m.put(DATA,cursor.getString(dateColIndex));
+                m.put(DATA, cursor.getString(dateColIndex));
                 data.add(m);
-
+                Log.d("food", (String) m.get(FOOD_NAME) + " " + (Float) m.get(PROTEIN) + " " + (Float) m.get(FAT) + " " + (Float) m.get(CARBOHYDRATES) + " " + (Float) m.get(CALORIFIC) + " " + (String) m.get(EATING) + " " + (String) m.get(TIME) + " " + (String) m.get(DATA));
+                currentProt+=cursor.getFloat(proteinColIndex);
+                currentFat+=cursor.getFloat(fatColIndex);
+                currentCarbo+=cursor.getFloat(carbohydratesColIndex);
+                currentCalor+=cursor.getFloat(calorificColIndex);
             } while(cursor.moveToNext());
         }
+
+        tvProt.setText(getResources().getString(R.string.protein)+currentProt);
+        tvFat.setText(getResources().getString(R.string.fat)+currentFat);
+        tvCarbo.setText(getResources().getString(R.string.carbohydrates)+currentCarbo);
+        tvCalor.setText(getResources().getString(R.string.calorifical)+currentCalor);
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this,data,R.layout.one_ration,from,to);
         listView.setAdapter(simpleAdapter);
@@ -127,7 +143,6 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
                 m.put(CALORIFIC, cursor.getDouble(calorificColIndex));
 
 
-                //todo: add dialog about weight, eating and time
 
                 AddRationFragment dialogFragment = new AddRationFragment();
                 dialogFragment.addContext(this);
@@ -142,6 +157,10 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
     @Override
     public void onAddingFoodFinished(int weight, int hour, int minute, String eating, HashMap<String,Object> foodData) {
 
+        currentProt=0f;
+        currentFat=0f;
+        currentCarbo=0f;
+        currentCalor=0f;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(FOOD_NAME,(String)foodData.get(FOOD_NAME));
@@ -180,15 +199,26 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
                 m.put(FOOD_NAME,cursor.getString(foodNameColIndex));
                 m.put(PROTEIN,cursor.getFloat(proteinColIndex));
                 m.put(FAT,cursor.getFloat(fatColIndex));
-                m.put(CARBOHYDRATES,cursor.getFloat(carbohydratesColIndex));
-                m.put(CALORIFIC,cursor.getFloat(calorificColIndex));
-                m.put(EATING,cursor.getString(eatingColIndex));
-                m.put(TIME,cursor.getString(timeColIndex));
+                m.put(CARBOHYDRATES, cursor.getFloat(carbohydratesColIndex));
+                m.put(CALORIFIC, cursor.getFloat(calorificColIndex));
+                m.put(EATING, cursor.getString(eatingColIndex));
+                m.put(TIME, cursor.getString(timeColIndex));
                 m.put(DATA,cursor.getString(dateColIndex));
                 tmpData.add(m);
+                currentProt+=cursor.getFloat(proteinColIndex);
+                currentFat+=cursor.getFloat(fatColIndex);
+                currentCarbo+=cursor.getFloat(carbohydratesColIndex);
+                currentCalor+=cursor.getFloat(calorificColIndex);
 
             } while(cursor.moveToNext());
         }
+
+        tvProt.setText(getResources().getString(R.string.protein)+currentProt);
+        tvFat.setText(getResources().getString(R.string.fat)+currentFat);
+        tvCarbo.setText(getResources().getString(R.string.carbohydrates)+currentCarbo);
+        tvCalor.setText(getResources().getString(R.string.calorifical)+currentCalor);
+
+        dbHelper.addToGraph(calendar.get(Calendar.YEAR)+"."+calendar.get(Calendar.MONTH)+"."+calendar.get(Calendar.DAY_OF_MONTH),currentCalor,currentProt,currentFat,currentCarbo);
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this,tmpData,R.layout.one_ration,from,to);
         listView.setAdapter(simpleAdapter);
