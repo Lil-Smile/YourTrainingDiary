@@ -142,8 +142,6 @@ public class Food extends Activity implements Constants, View.OnClickListener{
 
 
 
-        //SimpleAdapter simpleAdapter = new SimpleAdapter(this,)
-
     }
 
     @Override

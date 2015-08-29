@@ -11,10 +11,11 @@
     <string name="protein">Белков,г:</string>
     <string name="fat">Жиров,г:</string>
     <string name="carbohydrates">Углеводов,г:</string>
-    <string name="calorifical">Калорийность,кк:</string>
+    <string name="calorifical">Килокалорий::</string>
     <string name="adding">Добавление</string>
     <string name="weight">Вес,г:</string>
     <string name="time">Время</string>
     <string name="date">Дата</string>
     <string name="eating">Прием пищи</string>
+    <string name="notEnoughData">Недостаточно данных!</string>
 </resources>

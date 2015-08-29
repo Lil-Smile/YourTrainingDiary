@@ -183,6 +183,14 @@ public class DBHelper extends SQLiteOpenHelper implements Constants{
 
     }
 
+    public Cursor getGraphCursor()
+    {
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor cursor = database.query(GRAPH_TABLE_NAME,null,null,null,null,null,null);
+        return cursor;
+    }
+
+
 
 
 }

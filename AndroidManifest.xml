@@ -17,6 +17,8 @@
                 android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".Settings"/>
         <activity android:name=".Graph"/>
+        <activity android:name="org.achartengine.GraphicalActivity" />
+
     </application>
 
 </manifest>

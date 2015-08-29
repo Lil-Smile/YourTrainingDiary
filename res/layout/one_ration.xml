@@ -1,52 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/tvFoodNameRation"
-            android:minHeight="20dp"
-            android:minWidth="100dp"/>
+            />
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" android:id="@+id/linearLayout">
-        <TextView
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvFoodProtRation"
-                android:layout_weight="1"
-                android:padding="@dimen/paddingFood"
-                android:minWidth="10dp"/>
-        <TextView
+                android:layout_height="wrap_content">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/protein"
+                    android:id="@+id/textView7"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/zero"
+                    android:text="New Text"
+                    android:id="@+id/tvFoodProtRation"
+                    android:layout_weight="1"
+                    android:padding="@dimen/paddingFood"
+                    android:minWidth="10dp"
+                    />
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvFoodFatRation"
-                android:layout_weight="1"
-                android:padding="@dimen/paddingFood"
-                android:minWidth="10dp"/>
-        <TextView
+                android:layout_height="wrap_content">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fat"
+                    android:id="@+id/textView8"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/zero"
+                    android:text="New Text"
+                    android:id="@+id/tvFoodFatRation"
+                    android:layout_weight="1"
+                    android:padding="@dimen/paddingFood"
+                    android:minWidth="10dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvFoodCarboRation"
-                android:layout_weight="1"
-                android:padding="@dimen/paddingFood"
-                android:minWidth="10dp"/>
-        <TextView
+                android:layout_height="wrap_content">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/carbohydrates"
+                    android:id="@+id/textView10"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/zero"
+                    android:text="New Text"
+                    android:id="@+id/tvFoodCarboRation"
+                    android:layout_weight="1"
+                    android:padding="@dimen/paddingFood"
+                    android:minWidth="10dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvFoodCalorRation"
-                android:layout_weight="1"
-                android:padding="@dimen/paddingFood"
-                android:minWidth="10dp"/>
+                android:layout_height="wrap_content">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calorifical"
+                    android:id="@+id/textView11"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/zero"
+                    android:text="New Text"
+                    android:id="@+id/tvFoodCalorRation"
+                    android:layout_weight="1"
+                    android:padding="@dimen/paddingFood"
+                    android:minWidth="10dp"/>
+        </LinearLayout>
     </LinearLayout>
     <TextView
             android:layout_width="wrap_content"
@@ -63,4 +106,5 @@
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/tvDateRation"/>
-</LinearLayout>
+    </LinearLayout>
+</FrameLayout>
