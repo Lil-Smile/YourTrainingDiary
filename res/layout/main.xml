@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-        >
+              android:layout_height="fill_parent">
 
     <Button
             android:layout_width="wrap_content"
@@ -36,5 +35,12 @@
             android:layout_below="@id/buttonGraph"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/marginMenu"/>
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stat"
+            android:layout_below="@id/buttonSettings"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/marginMenu"
+            android:id="@+id/buttonStat"/>
 </RelativeLayout>
 

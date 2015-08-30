@@ -31,12 +31,20 @@
                 android:text="@string/calorifical"
                 android:id="@+id/tvCalorRation" android:layout_weight="1"/>
     </LinearLayout>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/tvCurrentDate"
+            android:gravity="center_vertical"
+            android:layout_below="@id/lltextViews"
+            />
     <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/lvRation"
             android:paddingTop="10dp"
-            android:layout_below="@id/lltextViews"
+            android:layout_below="@id/tvCurrentDate"
             android:layout_above="@+id/buttonAddRation"
            />
     <Button
@@ -47,5 +55,6 @@
             android:gravity="center_vertical"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/marginMenu"
-            android:layout_alignParentBottom="true"/>
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
 </RelativeLayout>

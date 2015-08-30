@@ -6,6 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by Smile on 21.08.15.
@@ -13,6 +19,7 @@ import android.util.Log;
 public class DBHelper extends SQLiteOpenHelper implements Constants{
 
     private static int DATABASE_VERSION=1;
+    Context context;
 
     //public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         //super(context, name, factory, version);
@@ -21,6 +28,7 @@ public class DBHelper extends SQLiteOpenHelper implements Constants{
     public DBHelper(Context context)
     {
         super(context,DATABASE_NAME,null,DATABASE_VERSION);
+        this.context = context;
         Log.d("db","inited");
     }
 
@@ -95,14 +103,39 @@ public class DBHelper extends SQLiteOpenHelper implements Constants{
 
     private void fillTableFood(SQLiteDatabase db)
     {
-        Log.d("db","food filled");
+        /*Log.d("db","food filled");
         ContentValues cv = new ContentValues();
         cv.put(FOOD_NAME,"Вода");
         cv.put(PROTEIN,0f);
         cv.put(FAT,0f);
         cv.put(CARBOHYDRATES, 0f);
         cv.put(CALORIFIC, 0f);
-        db.insert(FOOD_TABLE_NAME, null, cv);
+        db.insert(FOOD_TABLE_NAME, null, cv);*/
+        try{
+            String json;
+            InputStream is = context.getResources().openRawResource(R.raw.document);
+            byte[] buffer = new byte[is.available()];
+            while (is.read(buffer)!=-1);
+            json = new String(buffer);
+            JSONObject object = new JSONObject(json);
+            JSONArray array = object.getJSONArray("data");
+            for (int i = 0; i<array.length(); i++)
+            {
+                ContentValues cv = new ContentValues();
+                cv.put(FOOD_NAME,array.getJSONObject(i).getString("name"));
+                cv.put(PROTEIN,array.getJSONObject(i).getDouble("prot"));
+                cv.put(FAT,array.getJSONObject(i).getDouble("fat"));
+                cv.put(CARBOHYDRATES,array.getJSONObject(i).getDouble("carbo"));
+                cv.put(CALORIFIC, array.getJSONObject(i).getDouble("calor"));
+                db.insert(FOOD_TABLE_NAME,null,cv);
+                Log.d("adding","added #"+i);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

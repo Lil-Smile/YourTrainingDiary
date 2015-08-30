@@ -24,6 +24,8 @@ import java.util.*;
  */
 public class Ration extends Activity implements View.OnClickListener, Constants, AddFoodRationResponce {
 
+
+    //todo: add checking date
     static int REQUEST_CODE = 17;
 
     static int currentYear, currentMonth, currentDay;
@@ -31,6 +33,7 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
     TextView tvProt, tvFat, tvCarbo, tvCalor;
     ListView listView;
     Button buttonAdd;
+    TextView tvCurrentDate;
 
     DBHelper dbHelper;
 
@@ -59,6 +62,9 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
         tvFat = (TextView)findViewById(R.id.tvFatRation);
         tvCarbo = (TextView)findViewById(R.id.tvCarboRation);
         tvCalor = (TextView)findViewById(R.id.tvCalorRation);
+        tvCurrentDate = (TextView)findViewById(R.id.tvCurrentDate);
+        tvCurrentDate.setText(currentDay+"."+currentMonth+"."+currentYear);
+        tvCurrentDate.setTextSize(20);
 
         listView = (ListView)findViewById(R.id.lvRation);
 
@@ -69,6 +75,7 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
             {
                 currentProt=currentCalor=currentCarbo=currentFat=0;
                 currentDay+=1;
+                tvCurrentDate.setText(currentDay+"."+currentMonth+"."+currentYear);
                 String dateKey = currentYear+"."+currentMonth+"."+currentDay;//формат даты!
                 Cursor cursor = dbHelper.getRationCursor(dateKey);
                 ArrayList<Map<String,Object>> tmpData = new ArrayList<Map<String, Object>>();
@@ -115,6 +122,7 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
             {
                 currentProt=currentCalor=currentCarbo=currentFat=0;
                 currentDay-=1;
+                tvCurrentDate.setText(currentDay+"."+currentMonth+"."+currentYear);
                 String dateKey = currentYear+"."+currentMonth+"."+currentDay;//формат даты!
                 Cursor cursor = dbHelper.getRationCursor(dateKey);
                 ArrayList<Map<String,Object>> tmpData = new ArrayList<Map<String, Object>>();

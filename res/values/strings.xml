@@ -18,4 +18,56 @@
     <string name="date">Дата</string>
     <string name="eating">Прием пищи</string>
     <string name="notEnoughData">Недостаточно данных!</string>
+    <string name="weightSettings">Вес</string>
+    <string name="heightSettings">Рост</string>
+    <string name="upMass">Набор массы</string>
+    <string name="downMass">Похудение</string>
+    <string name="stayMass">Поддержание массы</string>
+    <string name="age">Возраст</string>
+    <string name="program">Планируемая программа</string>
+    <string-array name="mass">
+        <item>Набор массы</item>
+        <item>Похудение</item>
+        <item>Поддержание массы</item>
+    </string-array>
+    <string-array name="mass_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string name="lifestyle">Образ жизни</string>
+    <string-array name="koef">
+        <item>Отсутствие физ-нагрузки</item>
+        <item>Минимум занятий спортом или физический труд</item>
+        <item>Регулярные занятия спортом</item>
+        <item>Ежедневные занятия спортом</item>
+        <item>Ежедневные занятия спортом и физический труд</item>
+    </string-array>
+    <string-array name="koef_values">
+        <item>1.2</item>
+        <item>1.375</item>
+        <item>1.55</item>
+        <item>1.725</item>
+        <item>1.9</item>
+    </string-array>
+    <string-array name="gender">
+        <item>Мужской</item>
+        <item>Женский</item>
+    </string-array>
+    <string-array name="gender_values">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string name="gender">Пол</string>
+    <string name="keyWeight">weight</string>
+    <string name="keyHeight">height</string>
+    <string name="keyAge">age</string>
+    <string name="keyProgram">program</string>
+    <string name="keyKoef">koef</string>
+    <string name="keyGender">gender</string>
+
+    <string name="stat">Статистика</string>
+    <string name="recomended">Рекомендованное</string>
+    <string name="current">Текущее</string>
+
 </resources>

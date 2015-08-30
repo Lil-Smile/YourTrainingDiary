@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+            android:key="@string/keyWeight"
+            android:title="@string/weightSettings"
+            android:inputType="number"
+            />
+    <EditTextPreference
+            android:key="@string/keyHeight"
+            android:title="@string/heightSettings"
+            android:inputType="number"
+            android:summary="В сантиметрах"
+            />
+    <EditTextPreference
+            android:key="@string/keyAge"
+            android:title="@string/age"
+            android:inputType="number"/>
+    <ListPreference
+            android:key="@string/keyProgram"
+            android:entries="@array/mass"
+            android:entryValues="@array/mass_values"
+            android:title="@string/program"
+            />
+    <ListPreference
+        android:key="@string/keyKoef"
+        android:title="@string/lifestyle"
+        android:entries="@array/koef"
+        android:entryValues="@array/koef_values"
+        />
+    <ListPreference
+        android:key="@string/keyGender"
+        android:title="@string/gender"
+        android:entries="@array/gender"
+        android:entryValues="@array/gender_values"
+            />
+
+</PreferenceScreen>

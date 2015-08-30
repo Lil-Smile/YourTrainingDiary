@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
 /**
- * Created by Smile on 21.08.15.
+ * Created by Smile on 30.08.15.
  */
-public class Settings extends PreferenceActivity {
+public class Pref extends PreferenceActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.pref);
     }
 }

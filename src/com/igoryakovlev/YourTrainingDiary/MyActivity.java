@@ -21,6 +21,7 @@ public class MyActivity extends Activity implements View.OnClickListener,Constan
     Button buttonFood;
     Button buttonGraph;
     Button buttonSettings;
+    Button buttonStat;
 
     DBHelper dbHelper;
 
@@ -35,11 +36,13 @@ public class MyActivity extends Activity implements View.OnClickListener,Constan
         buttonFood = (Button)findViewById(R.id.buttonFood);
         buttonGraph = (Button)findViewById(R.id.buttonGraph);
         buttonSettings = (Button)findViewById(R.id.buttonSettings);
+        buttonStat = (Button)findViewById(R.id.buttonStat);
 
         buttonRation.setOnClickListener(this);
         buttonFood.setOnClickListener(this);
         buttonGraph.setOnClickListener(this);
         buttonSettings.setOnClickListener(this);
+        buttonStat.setOnClickListener(this);
 
     }
 
@@ -118,7 +121,12 @@ public class MyActivity extends Activity implements View.OnClickListener,Constan
             }
             case R.id.buttonSettings:
             {
-                intent = new Intent(this,Settings.class);
+                intent = new Intent(this,Pref.class);
+                break;
+            }
+            case R.id.buttonStat:
+            {
+                intent = new Intent(this, Stat.class);
                 break;
             }
         }
