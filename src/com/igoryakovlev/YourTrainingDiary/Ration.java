@@ -310,7 +310,7 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
         cv.put(FOOD_NAME,(String)foodData.get(FOOD_NAME));
         cv.put(PROTEIN,((Double)foodData.get(PROTEIN)*weight)/100);
         cv.put(FAT,((Double)foodData.get(FAT)*weight)/100);
-        cv.put(CARBOHYDRATES,((Double)foodData.get(FAT)*weight)/100);
+        cv.put(CARBOHYDRATES,((Double)foodData.get(CARBOHYDRATES)*weight)/100);
         cv.put(CALORIFIC,((Double)foodData.get(CALORIFIC)*weight)/100);
         cv.put(EATING,eating);
         cv.put(TIME, hour + ":" + minute);
