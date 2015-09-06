@@ -68,7 +68,7 @@ public class Stat extends Activity implements Constants {
                         protRecom=weight*2.5f;
                         carboRecom=weight*5;
                         fatRecom=(calorRecom-protRecom*4-carboRecom*4)/8;
-                        tvCarboRecom.setText(carboRecom+" г"); tvCalorRecom.setText(calorRecom+" кк"); tvProtRecom.setText(protRecom+" г"); tvFatRecom.setText(fatRecom+" г");
+                        tvCarboRecom.setText((int)carboRecom+" г"); tvCalorRecom.setText((int)calorRecom+" кк"); tvProtRecom.setText((int)protRecom+" г"); tvFatRecom.setText((int)fatRecom+" г");
                         break;
                     }
                     case 2: //похудение
@@ -77,7 +77,7 @@ public class Stat extends Activity implements Constants {
                         protRecom=(calorRecom*0.3f)/4;
                         fatRecom=(calorRecom*0.2f)/8;
                         carboRecom=(calorRecom*0.5f)/4;
-                        tvCarboRecom.setText(carboRecom+" г"); tvCalorRecom.setText(calorRecom+" кк"); tvProtRecom.setText(protRecom+" г"); tvFatRecom.setText(fatRecom+" г");
+                        tvCarboRecom.setText((int)carboRecom+" г"); tvCalorRecom.setText((int)calorRecom+" кк"); tvProtRecom.setText((int)protRecom+" г"); tvFatRecom.setText((int)fatRecom+" г");
                         break;
                     }
                     case 3: //поддержание
@@ -86,7 +86,7 @@ public class Stat extends Activity implements Constants {
                         protRecom=(calorRecom*0.2f)/4;
                         fatRecom=(calorRecom*0.2f)/8;
                         carboRecom=(calorRecom*0.6f)/4;
-                        tvCarboRecom.setText(carboRecom+" г"); tvCalorRecom.setText(calorRecom+" кк"); tvProtRecom.setText(protRecom+" г"); tvFatRecom.setText(fatRecom+" г");
+                        tvCarboRecom.setText((int)carboRecom+" г"); tvCalorRecom.setText((int)calorRecom+" кк"); tvProtRecom.setText((int)protRecom+" г"); tvFatRecom.setText((int)fatRecom+" г");
                         break;
                     }
 
@@ -116,7 +116,7 @@ public class Stat extends Activity implements Constants {
                         protRecom=weight*2.5f;
                         carboRecom=weight*5;
                         fatRecom=(calorRecom-protRecom*4-carboRecom*4)/8;
-                        tvCarboRecom.setText(carboRecom+" г"); tvCalorRecom.setText(calorRecom+" кк"); tvProtRecom.setText(protRecom+" г"); tvFatRecom.setText(fatRecom+" г");
+                        tvCarboRecom.setText((int)carboRecom+" г"); tvCalorRecom.setText((int)calorRecom+" кк"); tvProtRecom.setText((int)protRecom+" г"); tvFatRecom.setText((int)fatRecom+" г");
                         break;
                     }
                     case 2: //похудение
@@ -125,7 +125,7 @@ public class Stat extends Activity implements Constants {
                         protRecom=(calorRecom*0.3f)/4;
                         fatRecom=(calorRecom*0.2f)/8;
                         carboRecom=(calorRecom*0.5f)/4;
-                        tvCarboRecom.setText(carboRecom+" г"); tvCalorRecom.setText(calorRecom+" кк"); tvProtRecom.setText(protRecom+" г"); tvFatRecom.setText(fatRecom+" г");
+                        tvCarboRecom.setText((int)carboRecom+" г"); tvCalorRecom.setText((int)calorRecom+" кк"); tvProtRecom.setText((int)protRecom+" г"); tvFatRecom.setText((int)fatRecom+" г");
                         break;
                     }
                     case 3: //поддержание
@@ -134,7 +134,7 @@ public class Stat extends Activity implements Constants {
                         protRecom=(calorRecom*0.2f)/4;
                         fatRecom=(calorRecom*0.2f)/8;
                         carboRecom=(calorRecom*0.6f)/4;
-                        tvCarboRecom.setText(carboRecom+" г"); tvCalorRecom.setText(calorRecom+" кк"); tvProtRecom.setText(protRecom+" г"); tvFatRecom.setText(fatRecom+" г");
+                        tvCarboRecom.setText((int)carboRecom+" г"); tvCalorRecom.setText((int)calorRecom+" кк"); tvProtRecom.setText((int)protRecom+" г"); tvFatRecom.setText((int)fatRecom+" г");
                         break;
                     }
 
@@ -172,7 +172,7 @@ public class Stat extends Activity implements Constants {
             calor=totalCalor/days;
             carbo=totalCarbo/days;
             fat=totalFat/days;
-            tvCalorCurrent.setText(calor+" г");tvCarboCurrent.setText(carbo+" г");tvFatCurrent.setText(fat+" г");tvProtCurrent.setText(prot+" г");
+            tvCalorCurrent.setText((int)calor+" г");tvCarboCurrent.setText((int)carbo+" г");tvFatCurrent.setText((int)fat+" г");tvProtCurrent.setText((int)prot+" г");
         }
 
 

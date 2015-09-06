@@ -4,10 +4,11 @@
           android:versionCode="1"
           android:versionName="1.0">
     <uses-sdk android:minSdkVersion="17"/>
-    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
+    <application android:label="@string/app_name" android:icon="@drawable/icon">
         <activity android:name="MyActivity"
                   android:label="@string/app_name"
                   android:theme="@android:style/Theme.Black.NoTitleBar"
+                  android:screenOrientation="portrait"
                 >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -16,24 +17,29 @@
         </activity>
         <activity android:name=".Ration"
                   android:theme="@android:style/Theme.Black.NoTitleBar"
+                  android:screenOrientation="portrait"
                 />
         <activity android:name=".Food"
                 android:windowSoftInputMode="stateHidden"
                   android:theme="@android:style/Theme.Black.NoTitleBar"
+                  android:screenOrientation="portrait"
                 />
         <activity android:name=".Graph"
                   android:theme="@android:style/Theme.Black.NoTitleBar"
+                  android:screenOrientation="portrait"
                 />
         <activity android:name="org.achartengine.GraphicalActivity"
                   android:theme="@android:style/Theme.Black.NoTitleBar"
+                  android:screenOrientation="portrait"
                 />
         <activity android:name=".Pref"
                   android:theme="@android:style/Theme.Black.NoTitleBar"
+                  android:screenOrientation="portrait"
                 />
         <activity android:name=".Stat"
                   android:theme="@android:style/Theme.Black.NoTitleBar"
+                  android:screenOrientation="portrait"
                 />
-        <activity android:name=".TrainDiary"/>
 
     </application>
 

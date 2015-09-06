@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        >
 
     <EditTextPreference
             android:key="@string/keyWeight"
             android:title="@string/weightSettings"
             android:inputType="number"
+
             />
     <EditTextPreference
             android:key="@string/keyHeight"

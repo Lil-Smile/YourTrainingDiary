@@ -63,7 +63,7 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
         tvCarbo = (TextView)findViewById(R.id.tvCarboRation);
         tvCalor = (TextView)findViewById(R.id.tvCalorRation);
         tvCurrentDate = (TextView)findViewById(R.id.tvCurrentDate);
-        tvCurrentDate.setText(currentDay+"."+currentMonth+"."+currentYear);
+        tvCurrentDate.setText(currentDay+"/"+getMonth()+"/"+currentYear);
         tvCurrentDate.setTextSize(20);
 
         listView = (ListView)findViewById(R.id.lvRation);
@@ -74,9 +74,9 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
             public void onSwipeLeft()
             {
                 currentProt=currentCalor=currentCarbo=currentFat=0;
-                currentDay+=1;
-                tvCurrentDate.setText(currentDay+"."+currentMonth+"."+currentYear);
-                String dateKey = currentYear+"."+currentMonth+"."+currentDay;//формат даты!
+                changeCalndar(1);
+                tvCurrentDate.setText(currentDay+"/"+getMonth()+"/"+currentYear);
+                String dateKey = currentYear+"/"+getMonth()+"/"+currentDay;//формат даты!
                 Cursor cursor = dbHelper.getRationCursor(dateKey);
                 ArrayList<Map<String,Object>> tmpData = new ArrayList<Map<String, Object>>();
                 if (cursor.moveToFirst())
@@ -121,9 +121,9 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
             public void onSwipeRight()
             {
                 currentProt=currentCalor=currentCarbo=currentFat=0;
-                currentDay-=1;
-                tvCurrentDate.setText(currentDay+"."+currentMonth+"."+currentYear);
-                String dateKey = currentYear+"."+currentMonth+"."+currentDay;//формат даты!
+                changeCalndar(-1);
+                tvCurrentDate.setText(currentDay+"/"+getMonth()+"/"+currentYear);
+                String dateKey = currentYear+"/"+getMonth()+"/"+currentDay;//формат даты!
                 Cursor cursor = dbHelper.getRationCursor(dateKey);
                 ArrayList<Map<String,Object>> tmpData = new ArrayList<Map<String, Object>>();
                 if (cursor.moveToFirst())
@@ -204,7 +204,7 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
 
-        String dateKey = calendar.get(Calendar.YEAR)+"."+calendar.get(Calendar.MONTH)+"."+calendar.get(Calendar.DAY_OF_MONTH);//формат даты!
+        String dateKey = calendar.get(Calendar.YEAR)+"/"+getMonth()+"/"+calendar.get(Calendar.DAY_OF_MONTH);//формат даты!
         Log.d("tagged", dateKey);
         Cursor cursor = dbHelper.getRationCursor(dateKey);
 
@@ -315,12 +315,12 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
         cv.put(EATING,eating);
         cv.put(TIME, hour + ":" + minute);
         Calendar calendar = Calendar.getInstance();
-        cv.put(DATA,currentYear+"."+currentMonth+"."+currentDay);
+        cv.put(DATA,currentYear+"/"+getMonth()+"/"+currentDay);
         db.insert(RATION_TABLE_NAME,null,cv);
 
 
 
-        String dateKey = currentYear+"."+currentMonth+"."+currentDay;//формат даты!
+        String dateKey = currentYear+"/"+getMonth()+"/"+currentDay;//формат даты!
         //Log.d("tagged", dateKey);
         Cursor cursor = dbHelper.getRationCursor(dateKey);
 
@@ -367,4 +367,155 @@ public class Ration extends Activity implements View.OnClickListener, Constants,
         SimpleAdapter simpleAdapter = new SimpleAdapter(this,tmpData,R.layout.one_ration,from,to);
         listView.setAdapter(simpleAdapter);
     }
+
+    private void changeCalndar(int change)
+    {
+        if (change<0)
+        {
+            if (currentDay==1)
+            {
+                switch (currentMonth)
+                {
+                    case Calendar.MAY:{}
+                    case Calendar.JULY:{}
+                    case Calendar.AUGUST:{}
+                    case Calendar.OCTOBER:{}
+                    case Calendar.DECEMBER:
+                    {
+                        currentMonth--;
+                        currentDay=30;
+                        break;
+                    }
+                    case Calendar.MARCH:
+                    {
+                        currentMonth--;
+                        if (currentYear%4==0)
+                        {
+                            currentDay=29;
+                        } else
+                        {
+                            currentDay=28;
+                        }
+                        break;
+                    }
+                    case Calendar.JANUARY:
+                    {
+                        currentYear--;
+                        currentMonth=Calendar.DECEMBER;
+                        currentDay=31;
+                    }
+                    default:
+                    {
+                        currentMonth--;
+                        currentDay=31;
+                    }
+
+                }
+            } else
+            {
+                currentDay--;
+
+            }
+        } else
+        {
+           if ((currentDay==31) &&(currentMonth==Calendar.DECEMBER))
+            {
+                currentDay=1;
+                currentMonth=Calendar.JANUARY;
+                currentYear++;
+            }
+            else if (currentDay==31)
+            {
+                currentDay=1;
+                currentMonth++;
+            } else if (((currentDay==28)||(currentDay==29))&&(currentMonth==Calendar.FEBRUARY))
+            {
+                currentDay=1;
+                currentMonth++;
+            } else if ((currentDay==30)&&((currentMonth==Calendar.APRIL)||(currentMonth==Calendar.JUNE)||(currentMonth==Calendar.SEPTEMBER)||(currentMonth==Calendar.NOVEMBER)))
+            {
+                currentDay=1;
+                currentMonth++;
+            } else
+           {
+               currentDay++;
+           }
+        }
+    }
+
+    private String getMonth()
+    {
+        String result;
+        switch (currentMonth)
+        {
+            case Calendar.JANUARY:
+            {
+                result = "Январь";
+                break;
+            }
+            case Calendar.FEBRUARY:
+            {
+                result = "Февраль";
+                break;
+            }
+            case Calendar.MARCH:
+            {
+                result = "Март";
+                break;
+            }
+            case Calendar.APRIL:
+            {
+                result = "Апрель";
+                break;
+            }
+            case Calendar.MAY:
+            {
+                result = "Май";
+                break;
+            }
+            case Calendar.JUNE:
+            {
+                result = "Июнь";
+                break;
+            }
+            case Calendar.JULY:
+            {
+                result = "Июль";
+                break;
+            }
+            case Calendar.AUGUST:
+            {
+                result = "Август";
+                break;
+            }
+            case Calendar.SEPTEMBER:
+            {
+                result = "Сентябрь";
+                break;
+            }
+            case Calendar.OCTOBER:
+            {
+                result = "Октябрь";
+                break;
+            }
+            case Calendar.NOVEMBER:
+            {
+                result = "Ноябрь";
+                break;
+            }
+            case Calendar.DECEMBER:
+            {
+                result = "Декабрь";
+                break;
+            }
+            default:
+            {
+                result="";
+                break;
+            }
+        }
+        return result;
+    }
+
+
 }

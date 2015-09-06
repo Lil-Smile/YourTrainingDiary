@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="marginMenu">50dp</dimen>
+    <dimen name="marginMenu">40dp</dimen>
     <dimen name="paddingFood">5dp</dimen>
     <dimen name="zero">0dp</dimen>
-    <dimen name="marginStat">20dp</dimen>
+    <dimen name="marginStat">40dp</dimen>
+    <dimen name="paddinfStat">10dp</dimen>
+    <dimen name="dialogsWidth">60dp</dimen>
 </resources>

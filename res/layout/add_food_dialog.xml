@@ -17,7 +17,7 @@
                 android:id="@+id/textView"
                 android:singleLine="false"/>
         <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/dialogsWidth"
                 android:layout_height="wrap_content"
                 android:id="@+id/etFoodName" android:inputType="text"/>
     </LinearLayout>
@@ -33,7 +33,7 @@
                 android:text="@string/protein"
                 android:id="@+id/textView2"/>
         <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/dialogsWidth"
                 android:layout_height="wrap_content"
                 android:id="@+id/etProtein"
                 android:inputType="number"/>
@@ -50,7 +50,7 @@
                 android:text="@string/fat"
                 android:id="@+id/textView3"/>
         <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/dialogsWidth"
                 android:layout_height="wrap_content"
                 android:id="@+id/etFat"
                 android:inputType="number"/>
@@ -67,7 +67,7 @@
                 android:text="@string/carbohydrates"
                 android:id="@+id/textView4"/>
         <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/dialogsWidth"
                 android:layout_height="wrap_content"
                 android:id="@+id/etCarbohydrates"
                 android:inputType="number"/>
@@ -85,7 +85,7 @@
                 android:id="@+id/textView5"
                 />
         <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/dialogsWidth"
                 android:layout_height="wrap_content"
                 android:id="@+id/etCalorifical"
                 android:inputType="number"/>
@@ -94,5 +94,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save"
-            android:id="@+id/buttonSaveTheFood" android:layout_weight="1" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/buttonSaveTheFood"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button"/>
 </LinearLayout>

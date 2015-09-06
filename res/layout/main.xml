@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent">
+              android:layout_height="fill_parent" android:background="@color/backgroung">
 
     <Button
             android:layout_width="wrap_content"
@@ -10,7 +10,9 @@
             android:text="@string/ration"
             android:id="@+id/buttonRation"
             android:layout_marginTop="@dimen/marginMenu"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button"
+            />
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -18,7 +20,9 @@
             android:id="@+id/buttonFood"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/buttonRation"
-            android:layout_marginTop="@dimen/marginMenu"/>
+            android:layout_marginTop="@dimen/marginMenu"
+            android:background="@drawable/button"
+            />
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +30,9 @@
             android:id="@+id/buttonGraph"
             android:layout_marginTop="@dimen/marginMenu"
             android:layout_below="@+id/buttonFood"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button"
+            />
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,13 +40,17 @@
             android:id="@+id/buttonSettings"
             android:layout_below="@id/buttonGraph"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/marginMenu"/>
+            android:layout_marginTop="@dimen/marginMenu"
+            android:background="@drawable/button"
+            />
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/stat"
             android:layout_below="@id/buttonSettings"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/marginMenu"
-            android:id="@+id/buttonStat"/>
+            android:id="@+id/buttonStat"
+            android:background="@drawable/button"
+            />
 </RelativeLayout>
 

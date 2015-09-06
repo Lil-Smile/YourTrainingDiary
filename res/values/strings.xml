@@ -8,10 +8,10 @@
     <string name="add">Добавить</string>
     <string name="save">Сохранить</string>
     <string name="foodName">Название</string>
-    <string name="protein">Белков,г:</string>
-    <string name="fat">Жиров,г:</string>
-    <string name="carbohydrates">Углеводов,г:</string>
-    <string name="calorifical">Килокалорий::</string>
+    <string name="protein">Белков,г: </string>
+    <string name="fat">Жиров,г: </string>
+    <string name="carbohydrates">Углеводов,г: </string>
+    <string name="calorifical">Килокалорий: </string>
     <string name="adding">Добавление</string>
     <string name="weight">Вес,г:</string>
     <string name="time">Время</string>

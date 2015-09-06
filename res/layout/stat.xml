@@ -2,13 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@color/backgroung"  >
 
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/llTitles">
+            android:id="@+id/llTitles"
+            android:layout_marginTop="@dimen/marginStat"
+            android:layout_marginLeft="@dimen/paddinfStat">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -30,7 +33,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/llProt"
-            android:layout_below="@+id/llTitles" android:layout_marginTop="@dimen/marginStat">
+            android:layout_below="@+id/llTitles"
+            android:layout_marginTop="@dimen/marginStat"
+            android:layout_marginLeft="@dimen/paddinfStat">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,7 +57,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/llFat"
-            android:layout_below="@id/llProt" android:layout_marginTop="@dimen/marginStat">
+            android:layout_below="@id/llProt"
+            android:layout_marginTop="@dimen/marginStat"
+            android:layout_marginLeft="@dimen/paddinfStat">
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fat"
                   android:id="@+id/textView22" android:layout_weight="1"/>
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New Text"
@@ -65,7 +72,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/llCarbo"
-            android:layout_below="@+id/llFat" android:layout_marginTop="@dimen/marginStat">
+            android:layout_below="@+id/llFat"
+            android:layout_marginTop="@dimen/marginStat"
+            android:layout_marginLeft="@dimen/paddinfStat">
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/carbohydrates"
                   android:id="@+id/textView24" android:layout_weight="1"/>
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New Text"
@@ -78,7 +87,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/llCalor"
-            android:layout_below="@+id/llCarbo" android:layout_marginTop="@dimen/marginStat">
+            android:layout_below="@+id/llCarbo"
+            android:layout_marginTop="@dimen/marginStat"
+            android:layout_marginLeft="@dimen/paddinfStat">
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/calorifical"
                   android:id="@+id/textView26" android:layout_weight="1"/>
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New Text"

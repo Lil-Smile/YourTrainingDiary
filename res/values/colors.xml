@@ -3,4 +3,7 @@
     <color name="protein">#FF0000</color>
     <color name="fat">#00FF00</color>
     <color name="carbo">#0000FF</color>
+    <color name="backgroung">#475556</color>
+    <color name="textBack">#ACC29C</color>
+    <color name="white">#FFFFFF</color>
 </resources>
